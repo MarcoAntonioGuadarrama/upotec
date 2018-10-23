@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>UPOTEC</title>
+    <title>Dashboard V.1 | Kiaalap - Kiaalap Admin Template</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- favicon
@@ -87,7 +87,7 @@
                             <a class="has-arrow" href="all-professors.html" aria-expanded="false"><span class="educate-icon educate-professor icon-wrap"></span> <span class="mini-click-non">Empleados</span></a>
                             <ul class="submenu-angle" aria-expanded="false">
                                 <li><a title="All Professors" href="all-professors.html"><span class="mini-sub-pro">All Empleados</span></a></li>
-                                <li><a title="Add Professor" href="add-professor.blade.php"><span class="mini-sub-pro">Add Empleados</span></a></li>
+                                <li><a title="Add Professor" href="add-professor.html"><span class="mini-sub-pro">Add Empleados</span></a></li>
                                 <li><a title="Edit Professor" href="edit-professor.html"><span class="mini-sub-pro">Edit Empleados</span></a></li>
                                 
                             </ul>
@@ -96,7 +96,7 @@
                             <a class="has-arrow" href="all-students.html" aria-expanded="false"><span class="educate-icon educate-student icon-wrap"></span> <span class="mini-click-non">Students</span></a>
                             <ul class="submenu-angle" aria-expanded="false">
                                 <li><a title="All Students" href="all-students.html"><span class="mini-sub-pro">All Students</span></a></li>
-                                <li><a title="Add Students" href="add-student.blade.php"><span class="mini-sub-pro">Add Student</span></a></li>
+                                <li><a title="Add Students" href="add-student.html"><span class="mini-sub-pro">Add Student</span></a></li>
                                 <li><a title="Edit Students" href="edit-student.html"><span class="mini-sub-pro">Edit Student</span></a></li>
                                 
                             </ul>
@@ -104,7 +104,7 @@
    
                         </li>
                         <li>
-                            <a class="has-arrow" href="all-courses.html" aria-expanded="false"><span class="educate-icon educate-library icon-wrap"></span> <span class="mini-click-non">Libros</span></a>
+                            <a class="has-arrow" href="all-courses.html" aria-expanded="false"><span class="educate-icon educate-library icon-wrap"></span> <span class="mini-click-non">Library</span></a>
                             <ul class="submenu-angle" aria-expanded="false">
                                 <li><a title="All Library" href="library-assets.html"><span class="mini-sub-pro">Todos los libros</span></a></li>
                                 <li><a title="Add Library" href="add-library-assets.html"><span class="mini-sub-pro">Add libros</span></a></li>
@@ -182,16 +182,14 @@
                                     <div class="col-lg-1 col-md-0 col-sm-1 col-xs-12">
                                         <div class="menu-switcher-pro">
                                             <button type="button" id="sidebarCollapse" class="btn bar-button-pro header-drl-controller-btn btn-info navbar-btn">
-													<i class="educate-icon educate-nav"></i>												</button>
+													<i class="educate-icon educate-nav"></i>
+												</button>
                                         </div>
-                                    </div>
+                                        
+                                                    
+                                             
+
                                     
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                        
-                                                                           
                                                                                         </div>
                                                                                     </div>
                                                                                 </div>
@@ -213,19 +211,122 @@
                     </div>
                 </div>
             </div>
+        </div>
             <!-- Mobile Menu start -->
-         <!-- Mobile Menu start -->
-         <div class="mobile-menu-area">
+            
+            <div class="single-pro-review-area mt-t-30 mg-b-15">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <div class="product-payment-inner-st">
+                                    <center>
+                                            <h1>Alta de Empleado</h1>
+                                            <br>
+                                            <form action ="{{route('guardamaestro')}}" method = 'POST' enctype='multipart/form-data'>
+                                            {{csrf_field()}}
+                                            
+                                            @if($errors->first('idm')) 
+                                            <i> {{ $errors->first('idm') }} </i> 
+                                            @endif	<br>
+                                                
+                                            clave <input type = 'text' name = 'idm' value="{{$idms}}" readonly = 'readonly'>
+                                            <br>
+
+                                            @if($errors->first('nombre')) 
+                                            <i> {{ $errors->first('nombre') }} </i> 
+                                            @endif	<br>
+                                            Nombre<input type = 'text' name = 'nombre' value="{{old('nombre')}}">
+                                            <br>
+                                           
+                                            @if($errors->first('apellido paterno')) 
+                                            <i> {{ $errors->first('apellido paterno') }} </i> 
+                                            @endif	<br>
+                                            Apellido Paterno<input type = 'text' name = 'nombre' value="{{old('apellido paterno')}}">
+                                            <br>
+                                           
+                                            @if($errors->first('apellido materno')) 
+                                            <i> {{ $errors->first('apellido materno') }} </i> 
+                                            @endif	<br>
+                                            Apellido Materno<input type = 'text' name = 'nombre' value="{{old('apellido materno')}}">
+                                            <br>
+
+                                            @if($errors->first('calle')) 
+                                            <i> {{ $errors->first('calle') }} </i> 
+                                            @endif	<br>
+                                            Calle<input type = 'text' name = 'nombre' value="{{old('calle')}}">
+                                            <br>
+
+                                            @if($errors->first('colonia')) 
+                                            <i> {{ $errors->first('colonia') }} </i> 
+                                            @endif	<br>
+                                            Colonia<input type = 'text' name = 'nombre' value="{{old('colonia')}}">
+                                            <br>
+
+                                            @if($errors->first('municipio')) 
+                                            <i> {{ $errors->first('municipio') }} </i> 
+                                            @endif
+                                            <br>
+
+                                            Municipio<input type = 'text' name = 'nombre' value="{{old('municipio')}}">
+                                            <br>
+
+                                            @if($errors->first('cp')) 
+                                            <i> {{ $errors->first('cp') }} </i> 
+                                            @endif	
+                                            <br>
+
+                                            Codigo Postal<input type = 'text' name= 'cp' value="{{old('cp')}}" alt='el codigo postal debe de ser de 5 digitos'>
+                                            <br>
+
+                                            @if($errors->first('telefono')) 
+                                            <i> {{ $errors->first('telefono') }} </i> 
+                                            @endif
+                                            <br>
+                                            Telefono<input type ='text' name = 'edad' value="{{old('telefono')}}">
+                                            <br>
+
+                                            @if($errors->first('correo')) 
+                                            <i> {{ $errors->first('correo') }} </i> 
+                                            @endif	<br>
+                                            correo<input type = 'text' name= 'correo' value="{{old('correo')}}">
+                                            <br>
+                                          
+                                            Seleccione carrera<select name = 'idc'>
+                                             @foreach($carreras as $cr)
+                                             <option value = '{{$cr->idc}}'>{{$cr->nombre}}</option>
+                                             @endforeach
+                                                              </select>
+                                            <br>
+                                            @if($errors->first('archivo')) 
+                                            <i> {{ $errors->first('archivo') }} </i> 
+                                            @endif	<br>
+                                            Seleccione Foto <input type  ='file' name = 'archivo'>
+                                            <br>
+                                            <input type = 'submit' value = 'Guardar'>
+                                            </form>
+                                            
+                                                    
+                                                    
+                                               
+                                                    
+                                                    
+                                    </center>
+                                </ul>
+                </ul>
+            <div class="mobile-menu-area">
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                             <div class="mobile-menu">
                                 <nav id="dropdown">
                                     <ul class="mobile-menu-nav">
+                                        
+                                                                                </ul>
         <div class="footer-copyright-area">
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-lg-12">
+                    carlos
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                         <div class="footer-copy-right">
                             <p>Copyright © 2018. All rights reserved. Template by <a href="https://colorlib.com/wp/templates/">Colorlib</a></p>
                         </div>
@@ -259,11 +360,6 @@
     <!-- scrollUp JS
 		============================================ -->
     <script src="js/jquery.scrollUp.min.js"></script>
-    <!-- counterup JS
-		============================================ -->
-    <script src="js/counterup/jquery.counterup.min.js"></script>
-    <script src="js/counterup/waypoints.min.js"></script>
-    <script src="js/counterup/counterup-active.js"></script>
     <!-- mCustomScrollbar JS
 		============================================ -->
     <script src="js/scrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
@@ -274,19 +370,32 @@
     <script src="js/metisMenu/metisMenu-active.js"></script>
     <!-- morrisjs JS
 		============================================ -->
-    <script src="js/morrisjs/raphael-min.js"></script>
-    <script src="js/morrisjs/morris.js"></script>
-    <script src="js/morrisjs/morris-active.js"></script>
-    <!-- morrisjs JS
-		============================================ -->
     <script src="js/sparkline/jquery.sparkline.min.js"></script>
     <script src="js/sparkline/jquery.charts-sparkline.js"></script>
-    <script src="js/sparkline/sparkline-active.js"></script>
     <!-- calendar JS
 		============================================ -->
     <script src="js/calendar/moment.min.js"></script>
     <script src="js/calendar/fullcalendar.min.js"></script>
     <script src="js/calendar/fullcalendar-active.js"></script>
+    <!-- maskedinput JS
+		============================================ -->
+    <script src="js/jquery.maskedinput.min.js"></script>
+    <script src="js/masking-active.js"></script>
+    <!-- datepicker JS
+		============================================ -->
+    <script src="js/datepicker/jquery-ui.min.js"></script>
+    <script src="js/datepicker/datepicker-active.js"></script>
+    <!-- form validate JS
+		============================================ -->
+    <script src="js/form-validation/jquery.form.min.js"></script>
+    <script src="js/form-validation/jquery.validate.min.js"></script>
+    <script src="js/form-validation/form-active.js"></script>
+    <!-- dropzone JS
+		============================================ -->
+    <script src="js/dropzone/dropzone.js"></script>
+    <!-- tab JS
+		============================================ -->
+    <script src="js/tab.js"></script>
     <!-- plugins JS
 		============================================ -->
     <script src="js/plugins.js"></script>

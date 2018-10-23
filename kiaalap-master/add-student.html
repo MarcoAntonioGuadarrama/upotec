@@ -185,10 +185,7 @@
 													<i class="educate-icon educate-nav"></i>
 												</button>
                                         </div>
-                                        
-                                                    
-                                             
-
+                                   
                                     
                                                                                         </div>
                                                                                     </div>
@@ -220,7 +217,7 @@
                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                 <div class="product-payment-inner-st">
                                     <center>
-                                            <h1>Alta de Empleado</h1>
+                                            <h1>Alta de maestro</h1>
                                             <br>
                                             <form action ="{{route('guardamaestro')}}" method = 'POST' enctype='multipart/form-data'>
                                             {{csrf_field()}}
@@ -231,66 +228,26 @@
                                                 
                                             clave <input type = 'text' name = 'idm' value="{{$idms}}" readonly = 'readonly'>
                                             <br>
-
                                             @if($errors->first('nombre')) 
                                             <i> {{ $errors->first('nombre') }} </i> 
                                             @endif	<br>
                                             Nombre<input type = 'text' name = 'nombre' value="{{old('nombre')}}">
                                             <br>
-                                           
-                                            @if($errors->first('apellido paterno')) 
-                                            <i> {{ $errors->first('apellido paterno') }} </i> 
+                                            @if($errors->first('edad')) 
+                                            <i> {{ $errors->first('edad') }} </i> 
                                             @endif	<br>
-                                            Apellido Paterno<input type = 'text' name = 'nombre' value="{{old('apellido paterno')}}">
+                                            Edad<input type ='text' name = 'edad' value="{{old('edad')}}">
                                             <br>
-                                           
-                                            @if($errors->first('apellido materno')) 
-                                            <i> {{ $errors->first('apellido materno') }} </i> 
-                                            @endif	<br>
-                                            Apellido Materno<input type = 'text' name = 'nombre' value="{{old('apellido materno')}}">
-                                            <br>
-
-                                            @if($errors->first('calle')) 
-                                            <i> {{ $errors->first('calle') }} </i> 
-                                            @endif	<br>
-                                            Calle<input type = 'text' name = 'nombre' value="{{old('calle')}}">
-                                            <br>
-
-                                            @if($errors->first('colonia')) 
-                                            <i> {{ $errors->first('colonia') }} </i> 
-                                            @endif	<br>
-                                            Colonia<input type = 'text' name = 'nombre' value="{{old('colonia')}}">
-                                            <br>
-
-                                            @if($errors->first('municipio')) 
-                                            <i> {{ $errors->first('municipio') }} </i> 
-                                            @endif
-                                            <br>
-
-                                            Municipio<input type = 'text' name = 'nombre' value="{{old('municipio')}}">
-                                            <br>
-
-                                            @if($errors->first('cp')) 
-                                            <i> {{ $errors->first('cp') }} </i> 
-                                            @endif	
-                                            <br>
-
-                                            Codigo Postal<input type = 'text' name= 'cp' value="{{old('cp')}}" alt='el codigo postal debe de ser de 5 digitos'>
-                                            <br>
-
-                                            @if($errors->first('telefono')) 
-                                            <i> {{ $errors->first('telefono') }} </i> 
-                                            @endif
-                                            <br>
-                                            Telefono<input type ='text' name = 'edad' value="{{old('telefono')}}">
-                                            <br>
-
                                             @if($errors->first('correo')) 
                                             <i> {{ $errors->first('correo') }} </i> 
                                             @endif	<br>
                                             correo<input type = 'text' name= 'correo' value="{{old('correo')}}">
                                             <br>
-                                          
+                                            @if($errors->first('cp')) 
+                                            <i> {{ $errors->first('cp') }} </i> 
+                                            @endif	<br>
+                                            Codigo Postal<input type = 'text' name= 'cp' value="{{old('cp')}}" alt='el codigo postal debe de ser de 5 digitos'>
+                                            <br>
                                             Seleccione carrera<select name = 'idc'>
                                              @foreach($carreras as $cr)
                                              <option value = '{{$cr->idc}}'>{{$cr->nombre}}</option>
@@ -304,10 +261,10 @@
                                             <br>
                                             <input type = 'submit' value = 'Guardar'>
                                             </form>
-                                            
                                                     
                                                     
-                                               
+                                                    
+                                                    
                                                     
                                                     
                                     </center>
@@ -325,7 +282,7 @@
         <div class="footer-copyright-area">
             <div class="container-fluid">
                 <div class="row">
-                    
+                    carlos
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                         <div class="footer-copy-right">
                             <p>Copyright © 2018. All rights reserved. Template by <a href="https://colorlib.com/wp/templates/">Colorlib</a></p>

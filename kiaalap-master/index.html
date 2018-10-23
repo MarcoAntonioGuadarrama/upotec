@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Dashboard V.1 | Kiaalap - Kiaalap Admin Template</title>
+    <title>UPOTEC</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- favicon
@@ -104,7 +104,7 @@
    
                         </li>
                         <li>
-                            <a class="has-arrow" href="all-courses.html" aria-expanded="false"><span class="educate-icon educate-library icon-wrap"></span> <span class="mini-click-non">Library</span></a>
+                            <a class="has-arrow" href="all-courses.html" aria-expanded="false"><span class="educate-icon educate-library icon-wrap"></span> <span class="mini-click-non">Libros</span></a>
                             <ul class="submenu-angle" aria-expanded="false">
                                 <li><a title="All Library" href="library-assets.html"><span class="mini-sub-pro">Todos los libros</span></a></li>
                                 <li><a title="Add Library" href="add-library-assets.html"><span class="mini-sub-pro">Add libros</span></a></li>
@@ -182,11 +182,16 @@
                                     <div class="col-lg-1 col-md-0 col-sm-1 col-xs-12">
                                         <div class="menu-switcher-pro">
                                             <button type="button" id="sidebarCollapse" class="btn bar-button-pro header-drl-controller-btn btn-info navbar-btn">
-													<i class="educate-icon educate-nav"></i>
-												</button>
+													<i class="educate-icon educate-nav"></i>												</button>
                                         </div>
-                                   
+                                    </div>
                                     
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        
+                                                                           
                                                                                         </div>
                                                                                     </div>
                                                                                 </div>
@@ -208,82 +213,19 @@
                     </div>
                 </div>
             </div>
-        </div>
             <!-- Mobile Menu start -->
-            
-            <div class="single-pro-review-area mt-t-30 mg-b-15">
-                    <div class="container-fluid">
-                        <div class="row">
-                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                <div class="product-payment-inner-st">
-                                    <center>
-                                            <h1>Alta de maestro</h1>
-                                            <br>
-                                            <form action ="{{route('guardamaestro')}}" method = 'POST' enctype='multipart/form-data'>
-                                            {{csrf_field()}}
-                                            
-                                            @if($errors->first('idm')) 
-                                            <i> {{ $errors->first('idm') }} </i> 
-                                            @endif	<br>
-                                                
-                                            clave <input type = 'text' name = 'idm' value="{{$idms}}" readonly = 'readonly'>
-                                            <br>
-                                            @if($errors->first('nombre')) 
-                                            <i> {{ $errors->first('nombre') }} </i> 
-                                            @endif	<br>
-                                            Nombre<input type = 'text' name = 'nombre' value="{{old('nombre')}}">
-                                            <br>
-                                            @if($errors->first('edad')) 
-                                            <i> {{ $errors->first('edad') }} </i> 
-                                            @endif	<br>
-                                            Edad<input type ='text' name = 'edad' value="{{old('edad')}}">
-                                            <br>
-                                            @if($errors->first('correo')) 
-                                            <i> {{ $errors->first('correo') }} </i> 
-                                            @endif	<br>
-                                            correo<input type = 'text' name= 'correo' value="{{old('correo')}}">
-                                            <br>
-                                            @if($errors->first('cp')) 
-                                            <i> {{ $errors->first('cp') }} </i> 
-                                            @endif	<br>
-                                            Codigo Postal<input type = 'text' name= 'cp' value="{{old('cp')}}" alt='el codigo postal debe de ser de 5 digitos'>
-                                            <br>
-                                            Seleccione carrera<select name = 'idc'>
-                                             @foreach($carreras as $cr)
-                                             <option value = '{{$cr->idc}}'>{{$cr->nombre}}</option>
-                                             @endforeach
-                                                              </select>
-                                            <br>
-                                            @if($errors->first('archivo')) 
-                                            <i> {{ $errors->first('archivo') }} </i> 
-                                            @endif	<br>
-                                            Seleccione Foto <input type  ='file' name = 'archivo'>
-                                            <br>
-                                            <input type = 'submit' value = 'Guardar'>
-                                            </form>
-                                                    
-                                                    
-                                                    
-                                                    
-                                                    
-                                                    
-                                    </center>
-                                </ul>
-                </ul>
-            <div class="mobile-menu-area">
+         <!-- Mobile Menu start -->
+         <div class="mobile-menu-area">
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                             <div class="mobile-menu">
                                 <nav id="dropdown">
                                     <ul class="mobile-menu-nav">
-                                        
-                                                                                </ul>
         <div class="footer-copyright-area">
             <div class="container-fluid">
                 <div class="row">
-                    
-                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="col-lg-12">
                         <div class="footer-copy-right">
                             <p>Copyright © 2018. All rights reserved. Template by <a href="https://colorlib.com/wp/templates/">Colorlib</a></p>
                         </div>
@@ -317,6 +259,11 @@
     <!-- scrollUp JS
 		============================================ -->
     <script src="js/jquery.scrollUp.min.js"></script>
+    <!-- counterup JS
+		============================================ -->
+    <script src="js/counterup/jquery.counterup.min.js"></script>
+    <script src="js/counterup/waypoints.min.js"></script>
+    <script src="js/counterup/counterup-active.js"></script>
     <!-- mCustomScrollbar JS
 		============================================ -->
     <script src="js/scrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
@@ -327,32 +274,19 @@
     <script src="js/metisMenu/metisMenu-active.js"></script>
     <!-- morrisjs JS
 		============================================ -->
+    <script src="js/morrisjs/raphael-min.js"></script>
+    <script src="js/morrisjs/morris.js"></script>
+    <script src="js/morrisjs/morris-active.js"></script>
+    <!-- morrisjs JS
+		============================================ -->
     <script src="js/sparkline/jquery.sparkline.min.js"></script>
     <script src="js/sparkline/jquery.charts-sparkline.js"></script>
+    <script src="js/sparkline/sparkline-active.js"></script>
     <!-- calendar JS
 		============================================ -->
     <script src="js/calendar/moment.min.js"></script>
     <script src="js/calendar/fullcalendar.min.js"></script>
     <script src="js/calendar/fullcalendar-active.js"></script>
-    <!-- maskedinput JS
-		============================================ -->
-    <script src="js/jquery.maskedinput.min.js"></script>
-    <script src="js/masking-active.js"></script>
-    <!-- datepicker JS
-		============================================ -->
-    <script src="js/datepicker/jquery-ui.min.js"></script>
-    <script src="js/datepicker/datepicker-active.js"></script>
-    <!-- form validate JS
-		============================================ -->
-    <script src="js/form-validation/jquery.form.min.js"></script>
-    <script src="js/form-validation/jquery.validate.min.js"></script>
-    <script src="js/form-validation/form-active.js"></script>
-    <!-- dropzone JS
-		============================================ -->
-    <script src="js/dropzone/dropzone.js"></script>
-    <!-- tab JS
-		============================================ -->
-    <script src="js/tab.js"></script>
     <!-- plugins JS
 		============================================ -->
     <script src="js/plugins.js"></script>

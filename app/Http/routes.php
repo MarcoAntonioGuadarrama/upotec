@@ -23,35 +23,12 @@ Route::get('/mensaje', function () {
 Route::get('/at','curso@areatriangulo');
 Route::get('/ac/{radio}','curso@areacirculo');
 
-//para empleados
-Route::get('/add-professor','conempleado@altaempleado');
-
+Route::get('/altamaestro','curso@altamaestro');
 Route::POST('/guardamaestro','curso@guardamaestro')->name('guardamaestro');
 Route::get('/reportemaestros','curso@reportemaestros');
+
 Route::get('/eliminam/{idm}','curso@eliminam')->name('eliminam');
 Route::get('/modificam/{idm}','curso@modificam')->name('modificam');
-
-
-//para alumnos
-Route::get('/add-student','conalumno@altaalumno');
-Route::POST('/guardamaestro','curso@guardamaestro')->name('guardamaestro');
-Route::get('/reportemaestros','curso@reportemaestros');
-Route::get('/eliminam/{idm}','curso@eliminam')->name('eliminam');
-Route::get('/modificam/{idm}','curso@modificam')->name('modificam');
-
-//para libros
-Route::get('/add-library-assets','conlibro@altalibro');
-Route::POST('/guardamaestro','curso@guardamaestro')->name('guardamaestro');
-Route::get('/reportemaestros','curso@reportemaestros');
-Route::get('/eliminam/{idm}','curso@eliminam')->name('eliminam');
-Route::get('/modificam/{idm}','curso@modificam')->name('modificam');
-
-
-
-
-
-
-
 
 
 

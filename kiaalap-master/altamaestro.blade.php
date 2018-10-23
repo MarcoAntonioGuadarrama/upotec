@@ -37,7 +37,11 @@ Seleccione carrera<select name = 'idc'>
  @endforeach
                   </select>
 <br>
-
+@if($errors->first('archivo')) 
+<i> {{ $errors->first('archivo') }} </i> 
+@endif	<br>
+Seleccione Foto <input type  ='file' name = 'archivo'>
+<br>
 <input type = 'submit' value = 'Guardar'>
 </form>
 </body>

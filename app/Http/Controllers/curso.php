@@ -22,19 +22,10 @@ class curso extends Controller
         $pi = 3.14;
         $area = $pi * $radio * $radio;
         echo "el Area del circulo es $area";
-	}
-	
-
-
-
-
-
-
-
-
+    }
 	public function altamaestro()
 	{
-   $clavequesigue = empleados::orderBy('idm','desc')
+   $clavequesigue = maestros::orderBy('idm','desc')
 						    ->take(1)
 							->get();
      $idms = $clavequesigue[0]->idm+1;
@@ -51,31 +42,19 @@ class curso extends Controller
 	public function guardamaestro(Request $request)
 	{   
 	$nombre = $request->nombre;
-	$apellidopaterno = $request->apellidopaterno;
-	$appellidomaterno = $request->apellidomaterno;
-	$calle = $request->calle;
-	$colonia = $request->colonia;
-	$municipio = $request->municipio;
-	$codigopostal= $request->codigopostal;
-	$telefono = $request->telefono;
+	$edad= $request->edad;
 	$correo = $request->correo;
-	$idarea = $request->idarea;
-	
+	$idm = $request->idm;
+	$cp = $request->cp;
 
 	//no se recibe el archivo
 	
 	 $this->validate($request,[
-	     'idemple'=>'required|numeric',
-		 'nombre'=>'required|alpha',
-		 'apellido paterno'=>'required|alpha',
-		 'apellido materno'=>'required|alpha',
-		 'calle'=>'required|alpha',
-		 'colonia'=>'required|alpha',
-		 'municipio'=>'required|alpha',
-		 'codigopostal'=>['regex:/^[0-9]{5}$/'],
-		 'telefono'=>['regex:/^[0-9]{10}$/'],
+	     'idm'=>'required|numeric',
+         'nombre'=>'required|alpha',
+         'edad'=>'required|integer|min:18|max:70',
          'correo'=>'required|email',
-		 
+		 'cp'=>['regex:/^[0-9]{5}$/'],
 		 'archivo' =>'image|mimes:jpeg,jpg,gif,png'
 	     ]);
 		//$file => c:/>users/misimagenes/carpt/normita.jpg
@@ -97,31 +76,26 @@ class curso extends Controller
 	 }		 
 	
 		 //insert into maestros (idm,nomre,edad)-------
-	        $emple = new maestros;
-			$emple->archivo = $img2;
-			$emple->idm = $request->idm;
-			$emple->nombre = $request->nombre;
-			$emple->apellidopaterno = $request->apellidopaterno;
-			$emple->apellidomaterno = $request->apellidomaterno;
-			$emple->calle = $request->calle;
-			$emple->colonia = $request->colonia;
-			$emple->municipio = $request->municipio;
-			$emple->codigopostal =$request->codigopostal;
-			$emple->telefono =$request->telefono;
-			$emple->correo= $request->correo;
-			$emple->idc=$request->idc;
-			$emple->save();
+	        $maest = new maestros;
+			$maest->archivo = $img2;
+			$maest->idm = $request->idm;
+			$maest->nombre = $request->nombre;
+			$maest->edad =$request->edad;
+			$maest->correo= $request->correo;
+			$maest->cp=$request->cp;
+			$maest->idc=$request->idc;
+			$maest->save();
 			$proceso = "ALTA DE MAESTRO";
 			$mensaje = "Maestro guardado correctamente";
 			return view ("sistema.mensaje")
 			->with('proceso',$proceso)
 			->with('mensaje',$mensaje);
 	}
-	public function reporteempleado()
+	public function reportemaestros()
 	{
-		$empleado = empleados::orderBy('nombre','asc')->get();
+		$maestros = maestros::orderBy('nombre','asc')->get();
 		return view ('sistema.reporte')
-		->with('empleados',$empleado);
+		->with('maestros',$maestros);
 	}
 	public function eliminam($idm)
 	{
@@ -149,6 +123,11 @@ class curso extends Controller
 	}
 	
 }
+
+
+
+
+
 
 
 
